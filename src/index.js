@@ -13,7 +13,6 @@ import { Route, Switch } from 'react-router';
 
 import App from 'scenes/App';
 import LandingPage from 'scenes/LandingPage';
-import Sandbox from 'scenes/Sandbox';
 import reducers from 'store/reducers';
 
 import api from 'api';
@@ -42,7 +41,6 @@ ReactDOM.render(
           <App>
             <Route exact path="/" component={LandingPage} />
             <Route path="/landing" component={LandingPage} />
-            <Route path="/sandbox" component={Sandbox} />
           </App>
         </Switch>
     </ConnectedRouter>

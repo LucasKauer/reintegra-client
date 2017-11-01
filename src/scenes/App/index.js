@@ -61,7 +61,10 @@ class App extends React.Component {
 
   handleLogin = ({ password, nickname }) => {
     this.props
-      .login({ password, nickname });
+      .login({ password, nickname })
+      .then(() => {
+        if(!this.props.authError) this.handleClose();
+      });
   };
 
   handleAccountCreation = ({ password, nickname }) => {

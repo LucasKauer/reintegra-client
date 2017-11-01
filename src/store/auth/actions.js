@@ -4,15 +4,15 @@ import cookie from 'utils/cookie';
 const setAuthState = createAction('SET_AUTH_STATE');
 const setAuthError = createAction('SET_AUTH_ERROR');
 
-const login = credentials => (dispatch, _, api) => { console.log(api); api.login(credentials)
-  .then(({ token }) => {
-    cookie.set('token', token)
+const login = credentials => (dispatch, _, api) => api.login(credentials)
+  .then(({ dados }) => {
+    cookie.set('token', dados.token)
     dispatch(setAuthState(true))
   })
   .catch(error => dispatch([
     setAuthState(false),
     setAuthError(error.message),
-  ]))};
+  ]));
 
 const reauthenticate = () => (dispatch, _, api) => {
   if (cookie.get().token) {

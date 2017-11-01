@@ -1,6 +1,6 @@
 import http from 'utils/http';
 
 export default {
-  login: credentials => http.post('auth', credentials),
-  verifyToken: () => http.get('auth/verify'),
+  login: credentials => http.post('authentication', credentials),
+  verifyToken: () => http.get('authentication/verify'),
 };

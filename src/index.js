@@ -13,6 +13,7 @@ import { Route, Switch } from 'react-router';
 
 import App from 'scenes/App';
 import LandingPage from 'scenes/LandingPage';
+import Home from 'scenes/Home';
 import reducers from 'store/reducers';
 
 import api from 'api';
@@ -39,7 +40,7 @@ ReactDOM.render(
     <ConnectedRouter history={history}>
         <Switch>
           <App>
-            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/" component={Home} />
             <Route path="/landing" component={LandingPage} />
           </App>
         </Switch>

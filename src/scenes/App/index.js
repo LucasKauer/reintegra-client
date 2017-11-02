@@ -25,6 +25,14 @@ class App extends React.Component {
         password: '',
       };
     }
+
+    componentWillReceiveProps({ isLogged }) {
+      if (this.props.isLogged !== isLogged) {
+        this.props.goTo(
+          isLogged ? '/' : '/landing'
+        )
+      }
+    }
   componentDidMount() {
     this.props.goTo(
       this.props.isLogged ? '/' : '/landing'

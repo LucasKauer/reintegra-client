@@ -15,6 +15,7 @@ import Button from 'components/Button';
 import Modal from 'components/Modal';
 import UserForm from 'components/UserForm';
 import Footer from 'components/Footer';
+import Panel from 'components/Panel';
 
 class App extends React.Component {
     constructor(props) {
@@ -67,6 +68,8 @@ class App extends React.Component {
 
   onLoginButtonClick = event => this.props.openModal();
 
+  onProfileButtonClick = event => console.log("TODO");
+
   handleLogin = ({ password, nickname }) => {
     this.props
       .login({ password, nickname })
@@ -92,12 +95,17 @@ class App extends React.Component {
           />
         </Modal>
         <Header>
-          <Button small ghost hide={this.props.isLogged} onClick={this.onLoginButtonClick}>
-            Entrar
-          </Button>
-          <Button small ghost hide={!this.props.isLogged} onClick={this.onLogoutButtonClick}>
-            Sair
-          </Button>
+          <Panel row inline between="m">
+            <Button small ghost hide={this.props.isLogged} onClick={this.onLoginButtonClick}>
+              Entrar
+            </Button>
+            <Button small hide={!this.props.isLogged} onClick={this.onProfileButtonClick}>
+              Perfil
+            </Button>
+            <Button small ghost hide={!this.props.isLogged} onClick={this.onLogoutButtonClick}>
+              Sair
+            </Button>
+          </Panel>
         </Header>
         {this.props.children}
         <Footer />

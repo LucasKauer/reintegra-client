@@ -17,7 +17,8 @@
     "redux-actions": "^2.2.1",
     "redux-logger": "^3.0.6",
     "redux-multi": "^0.1.12",
-    "redux-thunk": "^2.2.0"
+    "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.8"
   },
   "devDependencies": {
     "autoprefixer": "7.1.2",

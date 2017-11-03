@@ -1,0 +1,34 @@
+.job-details {
+
+}
+
+.job-details__label {
+
+}
+
+.job-details__label-title {
+  color: #A76622;
+}
+
+.job-details__label-body {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.job-details__list {
+  font-size: 0;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.job-details__list-item {
+
+}
+
+.job-details__list-item span {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}

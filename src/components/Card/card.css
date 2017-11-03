@@ -1,0 +1,17 @@
+.card {
+  border-radius: 6px;
+  padding: 4rem;
+  background-color: #eee;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  box-sizing: border-box;
+}
+
+.card--no-pad {
+  padding: 0;
+}
+
+.card--centered {
+  text-align: center;
+}

@@ -33,6 +33,7 @@ const Panel = ({
       flex,
       alignItems: align || (centered && 'center'),
       justifyContent: justify || (centered && 'center'),
+      textAlign: (centered && 'center'),
       flexWrap: wrap && 'wrap',
       flexDirection: column ? 'column'
         : (row || wrap) ?  'row'

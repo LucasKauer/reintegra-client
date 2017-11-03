@@ -29,12 +29,26 @@ html {
     font-size: 1.5rem;
   }
 
+  h5 {
+    font-size: 1rem;
+  }
+
+  h6 {
+    font-size: 0.5rem;
+  }
+
   h1,
   h2,
   h3,
   h4,
   h5,
   h6 {
+    color: #222;
+    font-family: 'Neuton', serif;
+  }
+
+  p,
+  span {
     color: #222;
     font-family: 'Neuton', serif;
   }

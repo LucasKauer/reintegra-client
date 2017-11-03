@@ -19,9 +19,9 @@ const LandingPagePanel = ({ children, ...rest }) => (
     <Panel
       className={cn('landing-page-panel__content')}
       direction={media.greaterThan.phone() ? 'row' : 'column'}
-      align='center'
       justify={media.greaterThan.phone() ? 'space-between' : 'center'}
       between={media.greaterThan.phone() && 'xl'}
+      centered
       {...rest}
     >
       {children}

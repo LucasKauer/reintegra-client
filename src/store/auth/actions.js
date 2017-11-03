@@ -17,7 +17,11 @@ const login = credentials => (dispatch, _, api) => api.login(credentials)
 const reauthenticate = () => (dispatch, _, api) => {
   if (cookie.get().token) {
     api.verifyToken()
-      .then(() => dispatch(setAuthState(true)));
+      .then(() => dispatch(setAuthState(true)))
+      .catch(error => dispatch([
+        setAuthState(false),
+        setAuthError(error.message),
+      ]));
   }
 };
 

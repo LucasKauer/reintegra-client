@@ -50,10 +50,6 @@ class App extends React.Component {
     }
   }
 
-  handleChange = event => this.setState({
-    [event.target.name]: event.target.value
-  });
-
   handleClose = event => {
     this.setState({
       registerSteps: 0,
@@ -68,6 +64,7 @@ class App extends React.Component {
 
   onLoginButtonClick = event => this.props.openModal();
 
+  /* TODO: Precisa implementar. */
   onProfileButtonClick = event => console.log("TODO");
 
   handleLogin = ({ password, nickname }) => {

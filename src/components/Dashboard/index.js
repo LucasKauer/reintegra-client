@@ -29,8 +29,8 @@ const Dashboard = ({
     }
     between={media.greaterThan.phone() ? 'l' : 'm'}
   >
-    {children.map(child =>
-      <Card className="dashboard__card" noPad key={child.id}>
+    {children && children.map(child =>
+      <Card className="dashboard__card" noPad key={child.key}>
         {child}
       </Card>
     )}

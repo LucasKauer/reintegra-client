@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -18,50 +17,25 @@ class ResidentialDataForm extends React.Component {
       neighborhood: '',
       address: '',
       complement: '',
-      number: 0,
+      number: '',
     };
 
     this.state = this.initialState;
-  }
+  };
+
+  componentWillMount() {
+    this.setState(this.props.userProfile);
+  };
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
   handleBlur = ({ target }) => {
     getCepInfo(target.value)
-      .then(cepInfo => {
-        const { state, city, neighborhood, address } = this.findAll('Input');
-
-        state.value = cepInfo.state;
-        city.value = cepInfo.city;
-        neighborhood.value = cepInfo.neighborhood;
-        address.value = cepInfo.address;
-      })
+      .then(cepInfo => this.setState(cepInfo))
       .catch(console.log);
   };
 
-  onClearButtonClick = event => {
-    const {
-      cep,
-      state,
-      city,
-      neighborhood,
-      address,
-      complement,
-      number,
-    } = this.findAll('Input');
-
-    cep.value = '';
-    state.value = '';
-    city.value = '';
-    neighborhood.value = '';
-    address.value = '';
-    complement.value = '';
-    number.value = '';
-
-    this.setState(this.initalState);
-  };
-
-  findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
+  onClearButtonClick = event => this.setState(this.initalState);
 
   render() {
     return (

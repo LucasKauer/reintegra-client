@@ -67,6 +67,7 @@ class PersonalDataForm extends React.Component {
             type="text"
             name="name"
             placeholder="Nome Completo"
+            value={this.state.name}
             onChange={this.handleChange}
             required
           />
@@ -75,6 +76,7 @@ class PersonalDataForm extends React.Component {
             name="cpf"
             placeholder="CPF"
             length="11"
+            value={this.state.cpf}
             onChange={this.handleChange}
             required
           />
@@ -82,6 +84,7 @@ class PersonalDataForm extends React.Component {
             type="date"
             name="birthday"
             placeholder="Data de Nascimento"
+            value={this.state.birthday}
             onChange={this.handleChange}
             required
           />
@@ -90,6 +93,7 @@ class PersonalDataForm extends React.Component {
             name="rg"
             placeholder="RG"
             length="10"
+            value={this.state.rg}
             onChange={this.handleChange}
             required
           />
@@ -108,6 +112,7 @@ class PersonalDataForm extends React.Component {
             type="text"
             name="stateOfBirth"
             placeholder="Naturalidade"
+            value={this.state.stateOfBirth}
             onChange={this.handleChange}
             required
           />
@@ -115,6 +120,7 @@ class PersonalDataForm extends React.Component {
             type="text"
             name="nationality"
             placeholder="Nacionalidade"
+            value={this.state.nationality}
             onChange={this.handleChange}
             required
           />

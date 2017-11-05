@@ -45,7 +45,7 @@ class ResidentialDataForm extends React.Component {
       neighborhood,
       address,
       complement,
-      number
+      number,
     } = this.findAll('Input');
 
     cep.value = '';

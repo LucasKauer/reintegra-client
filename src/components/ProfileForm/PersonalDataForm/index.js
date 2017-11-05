@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -25,6 +26,35 @@ class PersonalDataForm extends React.Component {
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
+
+  onClearButtonClick = event => {
+    const {
+      cpf,
+      birthday,
+      name,
+      rg,
+      stateOfBirth,
+      nationality,
+    } = this.findAll('Input');
+
+    cpf.value = '';
+    birthday.value = '';
+    name.value = '';
+    rg.value = '';
+    stateOfBirth.value = '';
+    nationality.value = '';
+
+    const {
+      gender,
+      maritalStatus
+    } = this.findAll('Select');
+    gender.value = '';
+    maritalStatus.value = '';
+
+    this.setState({ gender: '', maritalStatus: '' });
+  }
+
+  findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
 
   render() {
     return (
@@ -67,6 +97,7 @@ class PersonalDataForm extends React.Component {
             name="gender"
             placeholder="Gênero"
             onChange={this.handleChange}
+            value={this.state.gender}
             required
           >
             <Option value='M' text='Masculino' />
@@ -91,6 +122,7 @@ class PersonalDataForm extends React.Component {
             name="maritalStatus"
             placeholder="Estado Civil"
             onChange={this.handleChange}
+            value={this.state.maritalStatus}
             required
           >
             <Option value='MARRIED' text='Casado(a)' />
@@ -104,7 +136,7 @@ class PersonalDataForm extends React.Component {
           <Button fit onClick={() => this.props.onNextStep(this.state)}>
             Próximo passo
           </Button>
-          <Button fit ghost onClick={() => this.props.onClear(this.state)}>
+          <Button fit ghost onClick={this.onClearButtonClick}>
             Limpar
           </Button>
         </Panel>

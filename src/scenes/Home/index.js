@@ -15,6 +15,7 @@ import Dashboard from 'components/Dashboard';
 import JobInformation from './JobInformation';
 import Modal from 'components/Modal';
 import PersonalDataForm from 'components/ProfileForm/PersonalDataForm';
+import ResidentialDataForm from 'components/ProfileForm/ResidentialDataForm';
 
 import './home.css';
 
@@ -44,8 +45,13 @@ class Home extends React.Component {
       <main className='home'>
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 1}>
           <PersonalDataForm
+            onNextStep={() => this.props.nextStepProfileModal(this.state.profileSteps)}
+          />
+        </Modal>
+        <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 2}>
+          <ResidentialDataForm
             onNextStep={() => console.log('TODO: Implementar')}
-            onClear={() => console.log('TODO: Implementar')}
+            onPrevStep={() => this.props.prevStepProfileModal(this.state.profileSteps)}
           />
         </Modal>
         <Dashboard>

@@ -5,7 +5,7 @@ import shortid from 'shortid';
 
 import bindActionCreators from 'utils/action-binder';
 
-import { getProfileModalState } from 'store/profile-modal';
+import { getProfileModalState, getUserProfileState } from 'store/profile-modal';
 import * as profileModalActions from 'store/profile-modal/actions';
 
 import { getJobs, getError } from 'store/job';
@@ -25,6 +25,7 @@ class Home extends React.Component {
     super(props);
     this.state = {
       profileSteps: 0,
+      userProfile: {},
       jobs: []
     };
   }
@@ -37,6 +38,9 @@ class Home extends React.Component {
     if (prevProps.profileSteps !== prevState.profileSteps) {
       this.setState({ profileSteps: prevProps.profileSteps });
     }
+    if (prevProps.userProfile !== prevState.userProfile) {
+      this.setState({ userProfile: prevProps.userProfile });
+    }
   }
 
   handleCloseProfile = event => this.props.closeProfileModal();
@@ -46,19 +50,22 @@ class Home extends React.Component {
       <main className='home'>
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 1}>
           <PersonalDataForm
-            onNextStep={() => this.props.nextStepProfileModal(this.state.profileSteps)}
+            userProfile={this.props.userProfile}
+            onNextStep={userProfile => this.props.nextStepProfileModal(this.state, userProfile)}
           />
         </Modal>
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 2}>
           <ResidentialDataForm
-            onNextStep={() => this.props.nextStepProfileModal(this.state.profileSteps)}
-            onPrevStep={() => this.props.prevStepProfileModal(this.state.profileSteps)}
+            userProfile={this.props.userProfile}
+            onNextStep={userProfile => this.props.nextStepProfileModal(this.state, userProfile)}
+            onPrevStep={userProfile => { this.props.prevStepProfileModal(this.state, userProfile)} }
           />
         </Modal>
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 3}>
           <ContactDataForm
+            userProfile={this.props.userProfile}
             onSaveProfile={() => console.log("TODO: Implementar")}
-            onPrevStep={() => this.props.prevStepProfileModal(this.state.profileSteps)}
+            onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
           />
         </Modal>
         <Dashboard>
@@ -88,6 +95,7 @@ class Home extends React.Component {
 export default connect(
   state => ({
     profileSteps: getProfileModalState(state),
+    userProfile: getUserProfileState(state),
     jobs: getJobs(state),
     jobsError: getError(state),
   }),

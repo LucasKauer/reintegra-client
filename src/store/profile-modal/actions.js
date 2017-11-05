@@ -2,15 +2,15 @@ import { createAction } from 'redux-actions';
 
 const setProfileModalState = createAction('SET_PROFILE_MODAL_STATE');
 
-const openProfileModal = () => setStatus(1);
+const openProfileModal = () => setStatus({ profileSteps: 1, userProfile: { }});
 
-const closeProfileModal = () => setStatus(0);
+const closeProfileModal = () => setStatus({ profileSteps: 0, userProfile: { }});
 
-const nextStepProfileModal = currentStep => setStatus(currentStep + 1);
-const prevStepProfileModal = currentStep => setStatus(currentStep - 1);
+const nextStepProfileModal = ({ profileSteps, userProfile }, newDataToUserProfile) => setStatus({ profileSteps: profileSteps + 1, userProfile: Object.assign(userProfile, newDataToUserProfile) });
+const prevStepProfileModal = ({ profileSteps, userProfile }, newDataToUserProfile) => setStatus({ profileSteps: profileSteps - 1, userProfile: Object.assign(userProfile, newDataToUserProfile) });
 
-const setStatus = (profileSteps) => dispatch => {
-  dispatch(setProfileModalState(profileSteps));
+const setStatus = profile => dispatch => {
+  dispatch(setProfileModalState(profile));
 };
 
 export {

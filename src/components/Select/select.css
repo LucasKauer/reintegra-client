@@ -1,0 +1,14 @@
+.select {
+  font-size: inherit;
+  box-sizing: border-box;
+  padding: .8rem;
+  border: 2px solid #ccc;
+  border-radius: 3px;
+  font-size: 14px;
+  background: none;
+}
+
+.select::-webkit-inner-spin-button, .select::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: textfield;
+}

@@ -21,12 +21,12 @@ const Select = ({
       name={name}
       required={required}
       onChange={onChange}
-      defaultValue={defaultValue || ''}
+      defaultValue={defaultValue}
       className={cn(
         'select',
       )}
     >
-      { placeholder && <Option value='' text={placeholder}  disabled /> }
+      { placeholder && <Option value='' text={placeholder} disabled /> }
       {children}
     </select>
   )

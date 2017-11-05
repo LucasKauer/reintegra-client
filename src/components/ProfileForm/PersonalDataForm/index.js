@@ -46,7 +46,7 @@ class PersonalDataForm extends React.Component {
 
     const {
       gender,
-      maritalStatus
+      maritalStatus,
     } = this.findAll('Select');
     gender.value = '';
     maritalStatus.value = '';

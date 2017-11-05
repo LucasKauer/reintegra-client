@@ -4,6 +4,8 @@ import { replace } from 'react-router-redux';
 
 import bindActionCreators from 'utils/action-binder';
 
+import * as profileModalActions from 'store/profile-modal/actions';
+
 import { getRegisterModalState } from 'store/register-modal';
 import * as registerModalActions from 'store/register-modal/actions';
 
@@ -50,22 +52,13 @@ class App extends React.Component {
     }
   }
 
-  handleClose = event => {
-    this.setState({
-      registerSteps: 0,
-      nickname: '',
-      password: ''
-    })
-
-    this.props.closeModal();
-  };
+  handleClose = event => this.props.closeModal();
 
   onLogoutButtonClick = event => this.props.logout();
 
   onLoginButtonClick = event => this.props.openModal();
 
-  /* TODO: Precisa implementar. */
-  onProfileButtonClick = event => console.log("TODO");
+  onProfileButtonClick = event => this.props.openProfileModal();
 
   handleLogin = ({ password, nickname }) => {
     this.props
@@ -120,6 +113,7 @@ export default connect(
   bindActionCreators({
     ...authActions,
     ...registerModalActions,
+    ...profileModalActions,
     goTo: path => replace(path),
   })
 )(App);

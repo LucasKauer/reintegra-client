@@ -8,7 +8,7 @@ const request = (path, options) =>
       throw new Error(res.status);
     }
     if (res.status === 201) {
-      throw new Error(res.status);
+      return res;
     }
     return res.json();
   });

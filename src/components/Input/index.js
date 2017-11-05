@@ -9,6 +9,7 @@ const Input = ({
   value,
   type,
   name,
+  length,
   minlength,
   maxlength,
   required,
@@ -20,8 +21,8 @@ const Input = ({
       value={value}
       name={name}
       placeholder={placeholder}
-      minLength={minlength}
-      maxLength={maxlength}
+      minLength={length || minlength}
+      maxLength={length || maxlength}
       required={required}
       onChange={onChange}
       className={cn(

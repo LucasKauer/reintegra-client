@@ -16,6 +16,7 @@ import JobInformation from './JobInformation';
 import Modal from 'components/Modal';
 import PersonalDataForm from 'components/ProfileForm/PersonalDataForm';
 import ResidentialDataForm from 'components/ProfileForm/ResidentialDataForm';
+import ContactDataForm from 'components/ProfileForm/ContactDataForm';
 
 import './home.css';
 
@@ -50,7 +51,13 @@ class Home extends React.Component {
         </Modal>
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 2}>
           <ResidentialDataForm
-            onNextStep={() => console.log('TODO: Implementar')}
+            onNextStep={() => this.props.nextStepProfileModal(this.state.profileSteps)}
+            onPrevStep={() => this.props.prevStepProfileModal(this.state.profileSteps)}
+          />
+        </Modal>
+        <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 3}>
+          <ContactDataForm
+            onSaveProfile={() => console.log("TODO: Implementar")}
             onPrevStep={() => this.props.prevStepProfileModal(this.state.profileSteps)}
           />
         </Modal>

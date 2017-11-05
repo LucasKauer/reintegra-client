@@ -14,6 +14,7 @@ const Input = ({
   maxlength,
   required,
   onChange,
+  onBlur,
 }) => {
   return (
     <input
@@ -25,6 +26,7 @@ const Input = ({
       maxLength={length || maxlength}
       required={required}
       onChange={onChange}
+      onBlur={onBlur}
       className={cn(
         'input',
       )}

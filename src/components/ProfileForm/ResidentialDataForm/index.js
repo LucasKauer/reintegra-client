@@ -11,7 +11,7 @@ class ResidentialDataForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.initialState = {
       cep: '',
       state: '',
       city: '',
@@ -20,6 +20,8 @@ class ResidentialDataForm extends React.Component {
       complement: '',
       number: 0,
     };
+
+    this.state = this.initialState;
   }
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
@@ -32,7 +34,7 @@ class ResidentialDataForm extends React.Component {
         state.value = cepInfo.state;
         city.value = cepInfo.city;
         neighborhood.value = cepInfo.neighborhood;
-        address.value = cepInfo.address
+        address.value = cepInfo.address;
       })
       .catch(console.log);
   };
@@ -55,7 +57,9 @@ class ResidentialDataForm extends React.Component {
     address.value = '';
     complement.value = '';
     number.value = '';
-  }
+
+    this.setState(this.initalState);
+  };
 
   findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
 
@@ -71,6 +75,7 @@ class ResidentialDataForm extends React.Component {
             name="cep"
             placeholder="CEP"
             length="8"
+            value={this.state.cep}
             onChange={this.handleChange}
             onBlur={this.handleBlur}
             required
@@ -79,6 +84,7 @@ class ResidentialDataForm extends React.Component {
             type="text"
             name="state"
             placeholder="Estado"
+            value={this.state.state}
             onChange={this.handleChange}
             required
           />
@@ -86,6 +92,7 @@ class ResidentialDataForm extends React.Component {
             type="text"
             name="city"
             placeholder="Cidade"
+            value={this.state.city}
             onChange={this.handleChange}
             required
           />
@@ -93,6 +100,7 @@ class ResidentialDataForm extends React.Component {
             type="text"
             name="neighborhood"
             placeholder="Bairro"
+            value={this.state.neighborhood}
             onChange={this.handleChange}
             required
           />
@@ -100,6 +108,7 @@ class ResidentialDataForm extends React.Component {
             type="text"
             name="address"
             placeholder="Logradouro"
+            value={this.state.address}
             onChange={this.handleChange}
             required
           />
@@ -107,12 +116,14 @@ class ResidentialDataForm extends React.Component {
             type="text"
             name="complement"
             placeholder="Complemento"
+            value={this.state.complement}
             onChange={this.handleChange}
           />
           <Input
             type="text"
             name="number"
             placeholder="Número"
+            value={this.state.number}
             onChange={this.handleChange}
           />
         </Panel>

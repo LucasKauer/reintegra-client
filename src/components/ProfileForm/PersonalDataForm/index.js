@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -11,7 +10,7 @@ class PersonalDataForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.initalState = {
       cpf: '',
       birthday: new Date(),
       name: '',
@@ -21,40 +20,19 @@ class PersonalDataForm extends React.Component {
       nationality: '',
       maritalStatus: '',
     };
-  }
+
+    this.state = this.initalState;
+  };
+
+  componentWillMount() {
+    this.setState(this.props.userProfile);
+  };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
 
-  onClearButtonClick = event => {
-    const {
-      cpf,
-      birthday,
-      name,
-      rg,
-      stateOfBirth,
-      nationality,
-    } = this.findAll('Input');
-
-    cpf.value = '';
-    birthday.value = '';
-    name.value = '';
-    rg.value = '';
-    stateOfBirth.value = '';
-    nationality.value = '';
-
-    const {
-      gender,
-      maritalStatus,
-    } = this.findAll('Select');
-    gender.value = '';
-    maritalStatus.value = '';
-
-    this.setState({ gender: '', maritalStatus: '' });
-  }
-
-  findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
+  onClearButtonClick = event => this.setState(this.initalState);
 
   render() {
     return (

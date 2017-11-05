@@ -5,11 +5,16 @@ import shortid from 'shortid';
 
 import bindActionCreators from 'utils/action-binder';
 
+import { getProfileModalState } from 'store/profile-modal';
+import * as profileModalActions from 'store/profile-modal/actions';
+
 import { getJobs, getError } from 'store/job';
 import * as jobActions from 'store/job/actions';
 
 import Dashboard from 'components/Dashboard';
 import JobInformation from './JobInformation';
+import Modal from 'components/Modal';
+import PersonalDataForm from 'components/ProfileForm/PersonalDataForm';
 
 import './home.css';
 
@@ -32,9 +37,17 @@ class Home extends React.Component {
     }
   }
 
+  handleCloseProfile = event => this.props.closeProfileModal();
+
   render() {
     return (
       <main className='home'>
+        <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 1}>
+          <PersonalDataForm
+            onNextStep={() => console.log('TODO: Implementar')}
+            onClear={() => console.log('TODO: Implementar')}
+          />
+        </Modal>
         <Dashboard>
           {this.props.jobs.map(j =>
             <JobInformation
@@ -61,11 +74,12 @@ class Home extends React.Component {
 
 export default connect(
   state => ({
-    profileSteps: 0,
+    profileSteps: getProfileModalState(state),
     jobs: getJobs(state),
     jobsError: getError(state),
   }),
   bindActionCreators({
+    ...profileModalActions,
     ...jobActions,
   })
 )(Home);

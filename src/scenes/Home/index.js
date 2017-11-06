@@ -11,12 +11,17 @@ import * as profileModalActions from 'store/profile-modal/actions';
 import { getJobs, getError } from 'store/job';
 import * as jobActions from 'store/job/actions';
 
+import Button from 'components/Button';
+import ContactDataForm from 'components/ProfileForm/ContactDataForm';
 import Dashboard from 'components/Dashboard';
+import Input from 'components/Input';
 import JobInformation from './JobInformation';
 import Modal from 'components/Modal';
+import Panel from 'components/Panel';
 import PersonalDataForm from 'components/ProfileForm/PersonalDataForm';
 import ResidentialDataForm from 'components/ProfileForm/ResidentialDataForm';
-import ContactDataForm from 'components/ProfileForm/ContactDataForm';
+
+import media from 'utils/media';
 
 import './home.css';
 
@@ -24,6 +29,7 @@ class Home extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      search: '',
       profileSteps: 0,
       userProfile: {},
       jobs: [],
@@ -44,6 +50,17 @@ class Home extends React.Component {
   }
 
   handleCloseProfile = () => this.props.closeProfileModal();
+
+  handleSearch = () => {
+    const { search } = this.state;
+
+    this.props
+      .getJobsByTitle(search);
+  };
+
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value });
+  };
 
   render() {
     return (
@@ -68,7 +85,29 @@ class Home extends React.Component {
             onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
           />
         </Modal>
-        <Dashboard>
+        <Panel
+          direction={media.greaterThan.tabletLandscape() ? 'row' : 'column'}
+          between={media.lessThan.tabletLandscape() && 'xs'}
+          y="m"
+          x={media.greaterThan.tabletLandscape() ? 'xxl' : 'm'}
+        >
+          <Panel flex="3" x={media.greaterThan.tabletLandscape() && 'l'}>
+            <Input
+              fit
+              small
+              name="search"
+              placeholder="Pesquisar"
+              value={this.state.search}
+              onChange={this.handleChange}
+            />
+          </Panel>
+          <Panel flex="1" x={media.greaterThan.tabletLandscape() && 'l'}>
+            <Button fit small onClick={this.handleSearch}>
+              Pesquisar
+            </Button>
+          </Panel>
+        </Panel>
+        <Dashboard onSearch={this.handleSearch}>
           {this.props.jobs.map(j =>
             (<JobInformation
               key={shortid.generate()}

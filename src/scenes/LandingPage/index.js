@@ -15,7 +15,7 @@ import cn from 'utils/cn';
 import './landing-page.css';
 
 const LandingPagePanel = ({ children, ...rest }) => (
-  <Panel className='landing-page-panel' x='m'>
+  <Panel className="landing-page-panel" x="m">
     <Panel
       className={cn('landing-page-panel__content')}
       direction={media.greaterThan.phone() ? 'row' : 'column'}
@@ -30,17 +30,14 @@ const LandingPagePanel = ({ children, ...rest }) => (
 );
 
 class LandingPage extends React.Component {
-
   onClickRegister = event => this.props.openModal();
 
   render() {
     return (
-      <main className='landing-page'>
-        <LandingPagePanel inline>
-        </LandingPagePanel>
-        <LandingPagePanel inline>
-        </LandingPagePanel>
-        <LandingPagePanel column justify='center'>
+      <main className="landing-page">
+        <LandingPagePanel inline />
+        <LandingPagePanel inline />
+        <LandingPagePanel column justify="center">
           <h2>Conquiste suas metas profissionais!</h2>
           <Button onClick={this.onClickRegister}>
             REGISTRE-SE AGORA
@@ -48,8 +45,8 @@ class LandingPage extends React.Component {
         </LandingPagePanel>
       </main>
     );
-  };
-};
+  }
+}
 
 export default connect(
   state => ({

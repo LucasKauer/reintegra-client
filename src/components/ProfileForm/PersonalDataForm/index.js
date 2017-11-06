@@ -22,11 +22,11 @@ class PersonalDataForm extends React.Component {
     };
 
     this.state = this.initalState;
-  };
+  }
 
   componentWillMount() {
     this.setState(this.props.userProfile);
-  };
+  }
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
@@ -82,9 +82,9 @@ class PersonalDataForm extends React.Component {
             value={this.state.gender}
             required
           >
-            <Option value='M' text='Masculino' />
-            <Option value='F' text='Feminino' />
-            <Option value='O' text='Outro' />
+            <Option value="M" text="Masculino" />
+            <Option value="F" text="Feminino" />
+            <Option value="O" text="Outro" />
           </Select>
           <Input
             type="text"
@@ -109,11 +109,11 @@ class PersonalDataForm extends React.Component {
             value={this.state.maritalStatus}
             required
           >
-            <Option value='MARRIED' text='Casado(a)' />
-            <Option value='DIVORCED' text='Divorciado(a)' />
-            <Option value='SEPARETED' text='Separado(a)' />
-            <Option value='SINGLE' text='Solteiro(a)' />
-            <Option value='WIDOWED' text='Viúvo(a)' />
+            <Option value="MARRIED" text="Casado(a)" />
+            <Option value="DIVORCED" text="Divorciado(a)" />
+            <Option value="SEPARETED" text="Separado(a)" />
+            <Option value="SINGLE" text="Solteiro(a)" />
+            <Option value="WIDOWED" text="Viúvo(a)" />
           </Select>
         </Panel>
         <Panel between="s">
@@ -126,7 +126,7 @@ class PersonalDataForm extends React.Component {
         </Panel>
       </Panel>
     );
-  };
-};
+  }
+}
 
 export default PersonalDataForm;

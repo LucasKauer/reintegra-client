@@ -30,8 +30,8 @@ const Input = ({
       className={cn(
         'input',
       )}
-      />
-  )
+    />
+  );
 };
 
 export default Input;

@@ -62,7 +62,7 @@ class UserForm extends React.Component {
         </Panel>
       </Panel>
     );
-  };
-};
+  }
+}
 
 export default UserForm;

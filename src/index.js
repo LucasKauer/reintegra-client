@@ -25,7 +25,7 @@ const history = createHistory();
 const store = createStore(
   combineReducers({
     router: routerReducer,
-    ...reducers
+    ...reducers,
   }),
   applyMiddleware(
     logger,
@@ -38,12 +38,12 @@ const store = createStore(
 ReactDOM.render(
   <Provider store={store}>
     <ConnectedRouter history={history}>
-        <Switch>
-          <App>
-            <Route exact path="/" component={Home} />
-            <Route path="/landing" component={LandingPage} />
-          </App>
-        </Switch>
+      <Switch>
+        <App>
+          <Route exact path="/" component={Home} />
+          <Route path="/landing" component={LandingPage} />
+        </App>
+      </Switch>
     </ConnectedRouter>
   </Provider>,
   document.getElementById('root'),

@@ -20,22 +20,22 @@ import Footer from 'components/Footer';
 import Panel from 'components/Panel';
 
 class App extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        registerSteps: 0,
-        nickname: '',
-        password: '',
-      };
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      registerSteps: 0,
+      nickname: '',
+      password: '',
+    };
+  }
 
-    componentWillReceiveProps({ isLogged }) {
-      if (this.props.isLogged !== isLogged) {
-        this.props.goTo(
-          isLogged ? '/' : '/landing'
-        )
-      }
+  componentWillReceiveProps({ isLogged }) {
+    if (this.props.isLogged !== isLogged) {
+      this.props.goTo(
+        isLogged ? '/' : '/landing'
+      );
     }
+  }
   componentDidMount() {
     this.props.goTo(
       this.props.isLogged ? '/' : '/landing'
@@ -64,7 +64,7 @@ class App extends React.Component {
     this.props
       .login({ password, nickname })
       .then(() => {
-        if(!this.props.authError) this.handleClose();
+        if (!this.props.authError) this.handleClose();
       });
   };
 
@@ -101,8 +101,8 @@ class App extends React.Component {
         <Footer />
       </main>
     );
-  };
-};
+  }
+}
 
 export default connect(
   state => ({

@@ -19,7 +19,7 @@ class ContactDataForm extends React.Component {
 
   componentWillMount() {
     this.setState(this.props.userProfile);
-  };
+  }
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
@@ -66,7 +66,7 @@ class ContactDataForm extends React.Component {
         </Panel>
       </Panel>
     );
-  };
-};
+  }
+}
 
 export default ContactDataForm;

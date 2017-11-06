@@ -12,7 +12,7 @@ const JobInformationHeader = ({
   city,
   state,
   country,
-  creationDate
+  creationDate,
 }) => (
   <Panel column centered inset="l" between="xxs">
     <h2>{title}</h2>
@@ -30,7 +30,7 @@ const JobInformationBody = ({
   experience,
   industries,
   employmentStatus,
-  jobFunctions
+  jobFunctions,
 }) => (
   <Panel row>
     <Panel flex="4" inset="l">
@@ -82,7 +82,7 @@ const JobInformation = ({
   experience,
   industries,
   employmentStatus,
-  jobFunctions
+  jobFunctions,
 }) => (
   <Panel>
     <JobInformationHeader

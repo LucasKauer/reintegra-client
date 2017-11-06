@@ -23,7 +23,7 @@ const makePayload = (method, data) =>
     body: JSON.stringify(data),
     headers: new Headers({
       'Content-Type': 'application/json',
-      'authorization': cookie.get().token
+      'authorization': cookie.get().token,
     }),
   });
 

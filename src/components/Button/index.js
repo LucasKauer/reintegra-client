@@ -18,7 +18,7 @@ const Button = ({
 }) => {
   const Tag = to ? Link
     : href ? 'a'
-    : 'button';
+      : 'button';
 
   return hide ? null : (
     <Tag
@@ -32,7 +32,7 @@ const Button = ({
         ghost && 'button--ghost',
       )}
       onClick={onClick}
-      >
+    >
       {children}
     </Tag>
   );

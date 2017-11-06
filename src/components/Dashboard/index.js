@@ -12,17 +12,17 @@ const Dashboard = ({
   children,
   className,
   noPad,
-  style
+  style,
 }) => (
   <Panel
     column
     fit
     style={{
-      ...style
+      ...style,
     }}
     className={
       cn(
-        "dashboard__content",
+        'dashboard__content',
         (noPad || media.lessThan.tabletLandscape()) && 'dashboard__content--no-pad',
         className
       )

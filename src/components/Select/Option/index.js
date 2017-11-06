@@ -8,7 +8,7 @@ const Option = ({
 }) => {
   return (
     <option value={value} selected={selected} disabled={disabled}>{text}</option>
-  )
+  );
 };
 
 export default Option;

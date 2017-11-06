@@ -26,7 +26,7 @@ class Home extends React.Component {
     this.state = {
       profileSteps: 0,
       userProfile: {},
-      jobs: []
+      jobs: [],
     };
   }
 
@@ -47,7 +47,7 @@ class Home extends React.Component {
 
   render() {
     return (
-      <main className='home'>
+      <main className="home">
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 1}>
           <PersonalDataForm
             userProfile={this.props.userProfile}
@@ -64,7 +64,7 @@ class Home extends React.Component {
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 3}>
           <ContactDataForm
             userProfile={this.props.userProfile}
-            onSaveProfile={() => console.log("TODO: Implementar")}
+            onSaveProfile={() => console.log('TODO: Implementar')}
             onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
           />
         </Modal>

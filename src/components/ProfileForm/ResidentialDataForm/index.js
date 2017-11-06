@@ -21,11 +21,11 @@ class ResidentialDataForm extends React.Component {
     };
 
     this.state = this.initialState;
-  };
+  }
 
   componentWillMount() {
     this.setState(this.props.userProfile);
-  };
+  }
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
@@ -116,7 +116,7 @@ class ResidentialDataForm extends React.Component {
         </Panel>
       </Panel>
     );
-  };
-};
+  }
+}
 
 export default ResidentialDataForm;

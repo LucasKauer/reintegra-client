@@ -13,7 +13,7 @@ const Select = ({
   placeholder,
   required,
   defaultValue,
-  onChange
+  onChange,
 }) => {
   return (
     <select
@@ -26,10 +26,10 @@ const Select = ({
         'select',
       )}
     >
-      { placeholder && <Option value='' text={placeholder} disabled /> }
+      { placeholder && <Option value="" text={placeholder} disabled /> }
       {children}
     </select>
-  )
+  );
 };
 
 export default Select;

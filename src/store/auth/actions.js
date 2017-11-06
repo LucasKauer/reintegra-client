@@ -6,8 +6,8 @@ const setAuthError = createAction('SET_AUTH_ERROR');
 
 const login = credentials => (dispatch, _, api) => api.login(credentials)
   .then(({ dados }) => {
-    cookie.set('token', dados.token)
-    dispatch(setAuthState(true))
+    cookie.set('token', dados.token);
+    dispatch(setAuthState(true));
   })
   .catch(error => dispatch([
     setAuthState(false),
@@ -40,5 +40,5 @@ export {
   setAuthState,
   setAuthError,
   login,
-  logout
-}
+  logout,
+};

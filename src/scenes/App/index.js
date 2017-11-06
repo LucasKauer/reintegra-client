@@ -41,7 +41,7 @@ class App extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.isLogged !== nextProps.isLogged) {
       this.props.goTo(
-        isLogged ? '/' : '/landing'
+        nextProps.isLogged ? '/' : '/landing'
       );
     }
   }

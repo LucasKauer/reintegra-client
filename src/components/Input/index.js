@@ -5,6 +5,8 @@ import cn from 'utils/cn';
 import './input.css';
 
 const Input = ({
+  className,
+  fit,
   placeholder,
   value,
   type,
@@ -29,6 +31,8 @@ const Input = ({
       onBlur={onBlur}
       className={cn(
         'input',
+        fit && 'input-fit',
+        className,
       )}
     />
   );

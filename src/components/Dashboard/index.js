@@ -30,9 +30,9 @@ const Dashboard = ({
     between={media.greaterThan.phone() ? 'l' : 'm'}
   >
     {children && children.map(child =>
-      <Card className="dashboard__card" noPad key={child.key}>
+      (<Card className="dashboard__card" noPad key={child.key}>
         {child}
-      </Card>
+      </Card>)
     )}
   </Panel>
 );

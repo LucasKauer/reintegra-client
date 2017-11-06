@@ -47,9 +47,9 @@ const JobInformationBody = ({
         <h5 className="job-details__label job-details__label-title">Setor:</h5>
         <ul className="job-details__list">
           {industries.map(i =>
-            <li className="job-details__list-item" key={shortid.generate()} >
+            (<li className="job-details__list-item" key={shortid.generate()} >
               <span>{i}</span>
-            </li>
+            </li>)
           )}
         </ul>
       </Panel>
@@ -61,9 +61,9 @@ const JobInformationBody = ({
         <h5 className="job-details__label job-details__label-title">Funções de trabalho:</h5>
         <ul className="job-details__list">
           {jobFunctions.map(f =>
-            <li className="job-details__list-item" key={shortid.generate()} >
+            (<li className="job-details__list-item" key={shortid.generate()} >
               <span>{f}</span>
-            </li>
+            </li>)
           )}
         </ul>
       </Panel>

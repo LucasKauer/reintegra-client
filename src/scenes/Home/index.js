@@ -70,7 +70,7 @@ class Home extends React.Component {
         </Modal>
         <Dashboard>
           {this.props.jobs.map(j =>
-            <JobInformation
+            (<JobInformation
               key={shortid.generate()}
               title = {j.title}
               company = {j.company}
@@ -83,7 +83,7 @@ class Home extends React.Component {
               industries = {j.industries}
               employmentStatus = {j.employmentStatus}
               jobFunctions = {j.jobFunctions}
-            />
+            />)
           )}
         </Dashboard>
         {this.props.children}

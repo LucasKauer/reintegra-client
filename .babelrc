@@ -1,0 +1,13 @@
+{
+  "presets": [
+    "es2015",
+    "react",
+    "react-app",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-class-properties",
+    "transform-react-inline-elements",
+    "transform-react-constant-elements"
+  ]
+}

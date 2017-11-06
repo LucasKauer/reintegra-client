@@ -7,6 +7,7 @@ import './input.css';
 const Input = ({
   className,
   fit,
+  small,
   placeholder,
   value,
   type,
@@ -31,7 +32,8 @@ const Input = ({
       onBlur={onBlur}
       className={cn(
         'input',
-        fit && 'input-fit',
+        fit && 'input--fit',
+        small && 'input--small',
         className,
       )}
     />

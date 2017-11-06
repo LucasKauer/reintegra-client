@@ -58,7 +58,7 @@ class Home extends React.Component {
           <ResidentialDataForm
             userProfile={this.props.userProfile}
             onNextStep={userProfile => this.props.nextStepProfileModal(this.state, userProfile)}
-            onPrevStep={userProfile => { this.props.prevStepProfileModal(this.state, userProfile)} }
+            onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
           />
         </Modal>
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 3}>

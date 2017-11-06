@@ -29,7 +29,7 @@ const createAccount = user => (dispatch, _, api) => api
   .createAccount(user)
   .then(() => dispatch(login(user)));
 
-const logout = (phone) => dispatch => {
+const logout = () => dispatch => {
   dispatch(setAuthState(false));
   cookie.set('token', '');
 };

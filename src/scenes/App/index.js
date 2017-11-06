@@ -28,14 +28,6 @@ class App extends React.Component {
       password: '',
     };
   }
-
-  componentWillReceiveProps({ isLogged }) {
-    if (this.props.isLogged !== isLogged) {
-      this.props.goTo(
-        isLogged ? '/' : '/landing'
-      );
-    }
-  }
   componentDidMount() {
     this.props.goTo(
       this.props.isLogged ? '/' : '/landing'
@@ -46,19 +38,27 @@ class App extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (this.props.isLogged !== nextProps.isLogged) {
+      this.props.goTo(
+        isLogged ? '/' : '/landing'
+      );
+    }
+  }
+
   componentWillUpdate(prevProps, prevState) {
     if (prevProps.registerSteps !== prevState.registerSteps) {
       this.setState({ registerSteps: prevProps.registerSteps });
     }
   }
 
-  handleClose = event => this.props.closeModal();
+  handleClose = () => this.props.closeModal();
 
-  onLogoutButtonClick = event => this.props.logout();
+  onLogoutButtonClick = () => this.props.logout();
 
-  onLoginButtonClick = event => this.props.openModal();
+  onLoginButtonClick = () => this.props.openModal();
 
-  onProfileButtonClick = event => this.props.openProfileModal();
+  onProfileButtonClick = () => this.props.openProfileModal();
 
   handleLogin = ({ password, nickname }) => {
     this.props

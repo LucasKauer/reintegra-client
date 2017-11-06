@@ -43,7 +43,7 @@ class Home extends React.Component {
     }
   }
 
-  handleCloseProfile = event => this.props.closeProfileModal();
+  handleCloseProfile = () => this.props.closeProfileModal();
 
   render() {
     return (
@@ -64,7 +64,7 @@ class Home extends React.Component {
         <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 3}>
           <ContactDataForm
             userProfile={this.props.userProfile}
-            onSaveProfile={() => console.log('TODO: Implementar')}
+            onSaveProfile={() => /* eslint-disable no-console */ console.log('TODO: Implementar')}
             onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
           />
         </Modal>

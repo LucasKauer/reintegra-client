@@ -32,7 +32,7 @@ class PersonalDataForm extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
-  onClearButtonClick = event => this.setState(this.initalState);
+  onClearButtonClick = () => this.setState(this.initalState);
 
   render() {
     return (

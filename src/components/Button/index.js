@@ -16,6 +16,7 @@ const Button = ({
   disabled,
   onClick,
 }) => {
+  /* eslint-disable no-nested-ternary */
   const Tag = to ? Link
     : href ? 'a'
       : 'button';

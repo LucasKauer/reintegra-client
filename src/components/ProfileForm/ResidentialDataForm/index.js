@@ -32,10 +32,10 @@ class ResidentialDataForm extends React.Component {
   handleBlur = ({ target }) => {
     getCepInfo(target.value)
       .then(cepInfo => this.setState(cepInfo))
-      .catch(console.log);
+      .catch(/* eslint-disable no-console */ console.log);
   };
 
-  onClearButtonClick = event => this.setState(this.initialState);
+  onClearButtonClick = () => this.setState(this.initialState);
 
   render() {
     return (

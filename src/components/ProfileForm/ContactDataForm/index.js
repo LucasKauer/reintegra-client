@@ -23,7 +23,7 @@ class ContactDataForm extends React.Component {
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
-  onClearButtonClick = event => this.setState(this.initialState);
+  onClearButtonClick = () => this.setState(this.initialState);
 
   findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
 

@@ -14,6 +14,7 @@ import cn from 'utils/cn';
 
 import './landing-page.css';
 
+/* eslint-disable react/no-multi-comp */
 const LandingPagePanel = ({ children, ...rest }) => (
   <Panel className="landing-page-panel" x="m">
     <Panel
@@ -30,7 +31,7 @@ const LandingPagePanel = ({ children, ...rest }) => (
 );
 
 class LandingPage extends React.Component {
-  onClickRegister = event => this.props.openModal();
+  onClickRegister = () => this.props.openModal();
 
   render() {
     return (

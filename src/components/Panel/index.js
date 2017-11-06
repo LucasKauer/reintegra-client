@@ -35,6 +35,7 @@ const Panel = ({
       justifyContent: justify || (centered && 'center'),
       textAlign: (centered && 'center'),
       flexWrap: wrap && 'wrap',
+      /* eslint-disable no-nested-ternary */
       flexDirection: column ? 'column'
         : (row || wrap) ?  'row'
           : direction,

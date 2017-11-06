@@ -6,6 +6,7 @@ import Panel from 'components/Panel';
 
 import './job-information.css';
 
+/* eslint-disable react/no-multi-comp */
 const JobInformationHeader = ({
   title,
   company,
@@ -25,6 +26,7 @@ const JobInformationHeader = ({
   </Panel>
 );
 
+/* eslint-disable react/no-multi-comp */
 const JobInformationBody = ({
   description,
   experience,

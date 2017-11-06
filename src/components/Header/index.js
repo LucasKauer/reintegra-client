@@ -3,8 +3,10 @@ import React from 'react';
 import Panel from 'components/Panel';
 
 import logo from '../../assets/logo.png';
+import loguinho from '../../assets/loguinho.png';
 
 import cn from 'utils/cn';
+import media from 'utils/media';
 
 import './header.css';
 
@@ -21,9 +23,8 @@ const Header = ({children}) => (
     sizing="border"
     fit
   >
-    <Panel row align="center" between="s">
-      <img src={logo} width="50" alt="logo" />
-      <h4>reintegra</h4>
+    <Panel row align="center" between="s" inset="m">
+      <img src={media.greaterThan.phone() ? logo : loguinho} width={media.greaterThan.phone() ? '200' : '65'}alt="logo" />
     </Panel>
     {children}
   </Panel>

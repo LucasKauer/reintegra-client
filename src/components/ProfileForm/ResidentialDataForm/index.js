@@ -35,7 +35,7 @@ class ResidentialDataForm extends React.Component {
       .catch(console.log);
   };
 
-  onClearButtonClick = event => this.setState(this.initalState);
+  onClearButtonClick = event => this.setState(this.initialState);
 
   render() {
     return (

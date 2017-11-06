@@ -12,8 +12,18 @@ const getJobs = () => (dispatch, _, api) => {
     ]));
 };
 
+const getJobsByTitle = title => (dispatch, _, api) => {
+  api.getJobsByTitle(title)
+    .then(({ dados }) => dispatch(setJobsState(dados)))
+    .catch(error => dispatch([
+      setJobsState([]),
+      setJobsError(error.message),
+    ]));
+};
+
 export {
   getJobs,
+  getJobsByTitle,
   setJobsState,
   setJobsError,
 };

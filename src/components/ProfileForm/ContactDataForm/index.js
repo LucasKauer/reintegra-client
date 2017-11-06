@@ -9,23 +9,21 @@ class ContactDataForm extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.initialState = {
       email: '',
       cellPhone: '',
     };
+
+    this.state = this.initialState;
   }
+
+  componentWillMount() {
+    this.setState(this.props.userProfile);
+  };
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
-  onClearButtonClick = event => {
-    const {
-      email,
-      cellPhone,
-    } = this.findAll('Input');
-
-    email.value = '';
-    cellPhone.value = '';
-  }
+  onClearButtonClick = event => this.setState(this.initialState);
 
   findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
 
@@ -37,9 +35,10 @@ class ContactDataForm extends React.Component {
         </h4>
         <Panel column between="s">
           <Input
-            type="text"
+            type="email"
             name="email"
-            placeholder="E-mail"
+            placeholder="E-mail (exemplo@reintegra.com.br)"
+            value={this.state.email}
             onChange={this.handleChange}
             required
           />
@@ -47,6 +46,7 @@ class ContactDataForm extends React.Component {
             type="text"
             name="cellPhone"
             placeholder="Celular"
+            value={this.state.cellPhone}
             onChange={this.handleChange}
             required
           />

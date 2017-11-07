@@ -1,0 +1,21 @@
+.phone-image {
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+.phone-image.phone-image-home {
+  background-image: url('../../../../assets/phone-image-home.png');
+}
+
+.phone-image.phone-image-logo {
+  background-image: url('../../../../assets/phone-image-logo.png');
+}
+
+.phone-image.phone-image-job {
+  background-image: url('../../../../assets/phone-image-job.png');
+}
+
+.phone-image.phone-image-company {
+  background-image: url('../../../../assets/phone-image-company.png');
+}

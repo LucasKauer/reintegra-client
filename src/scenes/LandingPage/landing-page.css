@@ -1,20 +1,4 @@
 .landing-page {
   background-color: #3CC0A7;
-}
-
-.landing-page-panel {
-  position: relative;
-  text-align: center;
-}
-
-.landing-page-panel__content {
-  min-height: 100vh;
-  margin: 0 auto;
-  max-width: 800px;
-}
-
-.landing-page-panel:nth-child(even) {
-  background-color: white;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  padding-top: 4rem;
 }

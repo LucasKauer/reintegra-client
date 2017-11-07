@@ -12,11 +12,11 @@ import * as registerModalActions from 'store/register-modal/actions';
 import { isLogged, getError } from 'store/auth';
 import * as authActions from 'store/auth/actions';
 
-import Header from 'components/Header';
+import UserFormModal from './UserFormModal';
+
 import Button from 'components/Button';
-import Modal from 'components/Modal';
-import UserForm from 'components/UserForm';
 import Footer from 'components/Footer';
+import Header from 'components/Header';
 import Panel from 'components/Panel';
 
 class App extends React.Component {
@@ -64,7 +64,9 @@ class App extends React.Component {
     this.props
       .login({ password, nickname })
       .then(() => {
-        if (!this.props.authError) this.handleClose();
+        if (!this.props.authError) {
+          this.handleClose();
+        }
       });
   };
 
@@ -77,13 +79,13 @@ class App extends React.Component {
   render() {
     return (
       <main>
-        <Modal onClose={this.handleClose} isOpen={this.state.registerSteps === 1}>
-          <UserForm
-            error={this.props.authError}
-            onLogin={this.handleLogin}
-            onCreateAccount={this.handleAccountCreation}
-          />
-        </Modal>
+        <UserFormModal
+          authError={this.props.authError}
+          isOpen={this.state.registerSteps === 1}
+          onClose={this.handleClose}
+          onCreateAccount={this.handleAccountCreation}
+          onLogin={this.handleLogin}
+        />
         <Header>
           <Panel row inline between="m">
             <Button small ghost hide={this.props.isLogged} onClick={this.onLoginButtonClick}>

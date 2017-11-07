@@ -20,6 +20,7 @@ const Panel = ({
   flex,
   align,
   justify,
+  textAlign,
   wrap,
   innerRef,
   sizing,
@@ -33,7 +34,7 @@ const Panel = ({
       flex,
       alignItems: align || (centered && 'center'),
       justifyContent: justify || (centered && 'center'),
-      textAlign: (centered && 'center'),
+      textAlign: textAlign || (centered && 'center'),
       flexWrap: wrap && 'wrap',
       /* eslint-disable no-nested-ternary */
       flexDirection: column ? 'column'

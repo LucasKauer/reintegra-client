@@ -11,15 +11,13 @@ import * as profileModalActions from 'store/profile-modal/actions';
 import { getJobs, getError } from 'store/job';
 import * as jobActions from 'store/job/actions';
 
+import ProfileFormModal from './ProfileFormModal';
+
 import Button from 'components/Button';
-import ContactDataForm from 'components/ProfileForm/ContactDataForm';
 import Dashboard from 'components/Dashboard';
 import Input from 'components/Input';
 import JobInformation from './JobInformation';
-import Modal from 'components/Modal';
 import Panel from 'components/Panel';
-import PersonalDataForm from 'components/ProfileForm/PersonalDataForm';
-import ResidentialDataForm from 'components/ProfileForm/ResidentialDataForm';
 
 import media from 'utils/media';
 
@@ -51,6 +49,10 @@ class Home extends React.Component {
 
   handleCloseProfile = () => this.props.closeProfileModal();
 
+  handleNextStep = userProfile => this.props.nextStepProfileModal(this.state, userProfile);
+
+  handlePrevStep = userProfile => this.props.prevStepProfileModal(this.state, userProfile);
+
   handleSearch = () => {
     const { search } = this.state;
 
@@ -65,26 +67,16 @@ class Home extends React.Component {
   render() {
     return (
       <main className="home">
-        <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 1}>
-          <PersonalDataForm
-            userProfile={this.props.userProfile}
-            onNextStep={userProfile => this.props.nextStepProfileModal(this.state, userProfile)}
-          />
-        </Modal>
-        <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 2}>
-          <ResidentialDataForm
-            userProfile={this.props.userProfile}
-            onNextStep={userProfile => this.props.nextStepProfileModal(this.state, userProfile)}
-            onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
-          />
-        </Modal>
-        <Modal onClose={this.handleCloseProfile} isOpen={this.state.profileSteps === 3}>
-          <ContactDataForm
-            userProfile={this.props.userProfile}
-            onSaveProfile={() => /* eslint-disable no-console */ console.log('TODO: Implementar')}
-            onPrevStep={userProfile => this.props.prevStepProfileModal(this.state, userProfile)}
-          />
-        </Modal>
+        <ProfileFormModal
+          isOpenPersonalDataForm={this.state.profileSteps === 1}
+          isOpenResidentialDataForm={this.state.profileSteps === 2}
+          isOpenContactDataForm={this.state.profileSteps === 3}
+          onClose={this.handleCloseProfile}
+          onNextStep={this.handleNextStep}
+          onPrevStep={this.handlePrevStep}
+          onSaveProfile={() => /* eslint-disable no-console */ console.log('TODO: Implementar')}
+          userProfile={this.props.userProfile}
+        />
         <Panel
           direction={media.greaterThan.tabletLandscape() ? 'row' : 'column'}
           between={media.lessThan.tabletLandscape() && 'xs'}

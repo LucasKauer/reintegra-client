@@ -5,8 +5,6 @@ import JobInformationHeader from './Header';
 
 import Panel from 'components/Panel';
 
-import './job-information.css';
-
 const JobInformation = ({
   title,
   company,

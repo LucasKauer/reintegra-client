@@ -4,6 +4,8 @@ import Panel from 'components/Panel';
 
 import shortid from 'shortid';
 
+import './job-information-body.css';
+
 /* TODO: Could be more componentized */
 const JobInformationBody = ({
   description,

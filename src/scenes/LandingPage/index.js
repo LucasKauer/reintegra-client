@@ -38,7 +38,7 @@ class LandingPage extends React.Component {
       },
       {
         id: shortid.generate(),
-        description: (<p>As empresas será disponibilizado uma API, possibilitando a divulgação de treinamentos e vagas de emprego.</p>),
+        description: (<p>Às empresas será disponibilizado uma API, possibilitando a divulgação de treinamentos e vagas de emprego.</p>),
         fileName: 'phone-image-company',
       },
     ];

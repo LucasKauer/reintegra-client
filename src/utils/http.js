@@ -31,6 +31,7 @@ const http = Object.assign(window.fetch, {
   get: path => requestInternal(path, makePayload('GET')),
   getExternal: path => requestExternal(path, { method: 'GET' }),
   post: (path, data) => requestInternal(path, makePayload('POST', data)),
+  put: (path, data) => requestInternal(path, makePayload('PUT', data)),
 });
 
 export default http;

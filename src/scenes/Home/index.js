@@ -53,6 +53,8 @@ class Home extends React.Component {
 
   handlePrevStep = userProfile => this.props.prevStepProfileModal(this.state, userProfile);
 
+  handleUpdateAccount = userProfile => this.props.updateAccount(userProfile);
+
   handleSearch = () => {
     const { search } = this.state;
 
@@ -74,7 +76,7 @@ class Home extends React.Component {
           onClose={this.handleCloseProfile}
           onNextStep={this.handleNextStep}
           onPrevStep={this.handlePrevStep}
-          onSaveProfile={() => /* eslint-disable no-console */ console.log('TODO: Implementar')}
+          onSaveProfile={this.handleUpdateAccount}
           userProfile={this.props.userProfile}
         />
         <Panel

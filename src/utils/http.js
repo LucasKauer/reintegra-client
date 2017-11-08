@@ -7,7 +7,7 @@ const request = (path, options) =>
     if (res.status >= 400) {
       throw new Error(res.status);
     }
-    if (res.status === 201) {
+    if (res.status > 200) {
       return res;
     }
     return res.json();

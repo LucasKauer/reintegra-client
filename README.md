@@ -10,7 +10,7 @@ Please before decided to contribute to this project, take a look at the [Wiki](h
 ### Installing
 First, download the repository or make the git clone in a directory:
 ```bash
-git clone git@github.com:lucaskauer/reintegra-client.git
+git clone https://github.com/LucasKauer/reintegra-client.git
 ```
 
 Then to go the folder and install all the dependencies with:

@@ -1,5 +1,5 @@
 <p align="center">
-	<a href="https://github.com/lucaskauer/reintegra-client">
+	<a href="https://lucaskauer.github.io/reintegra-client/">
 		<img src="./src/assets/logo.png" height="150" alt="Reintegra App">
 	</a>
 </p>

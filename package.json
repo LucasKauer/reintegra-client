@@ -7,7 +7,6 @@
     "url": "https://lucaskauer.github.io/personal-profile/"
   },
   "description": "",
-  "private": true,
   "dependencies": {
     "history": "^4.7.2",
     "object-assign": "4.1.1",

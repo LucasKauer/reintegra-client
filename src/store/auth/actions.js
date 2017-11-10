@@ -14,6 +14,11 @@ const login = credentials => (dispatch, _, api) => api.login(credentials)
     setAuthError(error.message),
   ]));
 
+const logout = () => dispatch => {
+  dispatch(setAuthState(false));
+  cookie.set('token', '');
+};
+
 const reauthenticate = () => (dispatch, _, api) => {
   if (cookie.get().token) {
     api.verifyToken()
@@ -29,16 +34,11 @@ const createAccount = user => (dispatch, _, api) => api
   .createAccount(user)
   .then(() => dispatch(login(user)));
 
-const logout = () => dispatch => {
-  dispatch(setAuthState(false));
-  cookie.set('token', '');
-};
-
 export {
-  reauthenticate,
-  createAccount,
   setAuthState,
   setAuthError,
   login,
   logout,
+  reauthenticate,
+  createAccount,
 };

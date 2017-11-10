@@ -5,8 +5,11 @@ import shortid from 'shortid';
 
 import bindActionCreators from 'utils/action-binder';
 
-import { getProfileModalState, getUserProfileState } from 'store/profile-modal';
+import { getProfileModalState } from 'store/profile-modal';
 import * as profileModalActions from 'store/profile-modal/actions';
+
+import { getUserInfoState } from 'store/user';
+import * as userActions from 'store/user/actions';
 
 import { getJobs, getError } from 'store/job';
 import * as jobActions from 'store/job/actions';
@@ -29,7 +32,7 @@ class Home extends React.Component {
     this.state = {
       search: '',
       profileSteps: 0,
-      userProfile: {},
+      userInfo: {},
       jobs: [],
     };
   }
@@ -42,18 +45,28 @@ class Home extends React.Component {
     if (prevProps.profileSteps !== prevState.profileSteps) {
       this.setState({ profileSteps: prevProps.profileSteps });
     }
-    if (prevProps.userProfile !== prevState.userProfile) {
-      this.setState({ userProfile: prevProps.userProfile });
+    if (prevProps.userInfo !== prevState.userInfo) {
+      this.setState({ userInfo: prevProps.userInfo });
     }
   }
 
   handleCloseProfile = () => this.props.closeProfileModal();
 
-  handleNextStep = userProfile => this.props.nextStepProfileModal(this.state, userProfile);
+  handleNextStep = userInfo => {
+    this.props
+      .nextStepProfileModal(this.state)
+      .then(() => this.props.updateUserInfo(this.state, userInfo));
+  }
 
-  handlePrevStep = userProfile => this.props.prevStepProfileModal(this.state, userProfile);
+  handlePrevStep = userInfo =>
+    this.props
+      .prevStepProfileModal(this.state)
+      .then(() => this.props.updateUserInfo(this.state, userInfo));
 
-  handleUpdateAccount = userProfile => this.props.updateAccount(userProfile);
+  handleSaveUserInfo = userInfo =>
+    this.props
+      .saveUserInfo(this.state, userInfo)
+      .then(this.handleCloseProfile);
 
   handleSearch = () => {
     const { search } = this.state;
@@ -76,8 +89,8 @@ class Home extends React.Component {
           onClose={this.handleCloseProfile}
           onNextStep={this.handleNextStep}
           onPrevStep={this.handlePrevStep}
-          onSaveProfile={this.handleUpdateAccount}
-          userProfile={this.props.userProfile}
+          onSaveUserInfo={this.handleSaveUserInfo}
+          userInfo={this.props.userInfo}
         />
         <Panel
           direction={media.greaterThan.tabletLandscape() ? 'row' : 'column'}
@@ -128,12 +141,13 @@ class Home extends React.Component {
 export default connect(
   state => ({
     profileSteps: getProfileModalState(state),
-    userProfile: getUserProfileState(state),
+    userInfo: getUserInfoState(state),
     jobs: getJobs(state),
     jobsError: getError(state),
   }),
   bindActionCreators({
     ...profileModalActions,
+    ...userActions,
     ...jobActions,
   })
 )(Home);

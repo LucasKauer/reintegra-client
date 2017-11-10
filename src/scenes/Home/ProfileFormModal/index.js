@@ -13,29 +13,29 @@ const ProfileFormModal = ({
   onClose,
   onNextStep,
   onPrevStep,
-  onSaveProfile,
-  userProfile,
+  onSaveUserInfo,
+  userInfo,
 }) => (
   <Panel>
     <PersonalDataFormModal
       isOpen={isOpenPersonalDataForm}
       onClose={onClose}
       onNextStep={onNextStep}
-      userProfile={userProfile}
+      userInfo={userInfo}
     />
     <ResidentialDataFormModal
       isOpen={isOpenResidentialDataForm}
       onClose={onClose}
       onNextStep={onNextStep}
       onPrevStep={onPrevStep}
-      userProfile={userProfile}
+      userInfo={userInfo}
     />
     <ContactDataFormModal
       isOpen={isOpenContactDataForm}
       onClose={onClose}
       onPrevStep={onPrevStep}
-      onSaveProfile={onSaveProfile}
-      userProfile={userProfile}
+      onSaveUserInfo={onSaveUserInfo}
+      userInfo={userInfo}
     />
   </Panel>
 );

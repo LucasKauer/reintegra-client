@@ -2,18 +2,15 @@ import { createAction } from 'redux-actions';
 
 const setProfileModalState = createAction('SET_PROFILE_MODAL_STATE');
 
-const openProfileModal = () => setStatus({ profileSteps: 1, userProfile: { }});
-const closeProfileModal = () => setStatus({ profileSteps: 0, userProfile: { }});
+const openProfileModal = () => setState(1);
+const closeProfileModal = () => setState(0);
 
-const nextStepProfileModal = ({ profileSteps, userProfile }, newDataToUserProfile) => setStatus({ profileSteps: profileSteps + 1, userProfile: Object.assign(userProfile, newDataToUserProfile) });
-const prevStepProfileModal = ({ profileSteps, userProfile }, newDataToUserProfile) => setStatus({ profileSteps: profileSteps - 1, userProfile: Object.assign(userProfile, newDataToUserProfile) });
+const nextStepProfileModal = ({ profileSteps }) => setState(profileSteps + 1);
+const prevStepProfileModal = ({ profileSteps }) => setState(profileSteps - 1);
 
-const updateAccount = user => (dispatch, _, api) =>
-  api.updateAccount(user)
-    .then(() => dispatch(closeProfileModal()));
-
-const setStatus = profile => dispatch => {
+const setState = profile => dispatch => {
   dispatch(setProfileModalState(profile));
+  return Promise.resolve();
 };
 
 export {
@@ -22,5 +19,4 @@ export {
   closeProfileModal,
   nextStepProfileModal,
   prevStepProfileModal,
-  updateAccount,
 };

@@ -24,7 +24,7 @@ class ResidentialDataForm extends React.Component {
   }
 
   componentWillMount() {
-    this.setState(this.props.userProfile);
+    this.setState(this.props.userInfo);
   }
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
@@ -36,6 +36,16 @@ class ResidentialDataForm extends React.Component {
   };
 
   onClearButtonClick = () => this.setState(this.initialState);
+
+  onPrevStep = () => {
+    const { cep, state, city, neighborhood, address, complement, number } = this.state;
+    return this.props.onPrevStep({ cep, state, city, neighborhood, address, complement, number });
+  };
+
+  onNextStep = () => {
+    const { cep, state, city, neighborhood, address, complement, number } = this.state;
+    return this.props.onNextStep({ cep, state, city, neighborhood, address, complement, number });
+  };
 
   render() {
     return (
@@ -102,11 +112,11 @@ class ResidentialDataForm extends React.Component {
           />
         </Panel>
         <Panel between="s">
-          <Button fit onClick={() => this.props.onNextStep(this.state)}>
+          <Button fit onClick={this.onNextStep}>
             Próximo passo
           </Button>
           <Panel row between="s">
-            <Button fit ghost onClick={() => this.props.onPrevStep(this.state)}>
+            <Button fit ghost onClick={this.onPrevStep}>
               Voltar
             </Button>
             <Button fit ghost onClick={this.onClearButtonClick}>

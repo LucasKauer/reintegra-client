@@ -7,14 +7,14 @@ const ContactDataFormModal = ({
   isOpen,
   onClose,
   onPrevStep,
-  onSaveProfile,
-  userProfile,
+  onSaveUserInfo,
+  userInfo,
 }) => (
   <Modal onClose={onClose} isOpen={isOpen}>
     <ContactDataForm
-      userProfile={userProfile}
+      userInfo={userInfo}
       onPrevStep={onPrevStep}
-      onSaveProfile={onSaveProfile}
+      onSaveUserInfo={onSaveUserInfo}
     />
   </Modal>
 );

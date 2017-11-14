@@ -25,14 +25,17 @@ class PersonalDataForm extends React.Component {
   }
 
   componentWillMount() {
-    this.setState(this.props.userProfile);
+    this.setState(this.props.userInfo);
   }
 
-  handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
-  };
+  handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
   onClearButtonClick = () => this.setState(this.initalState);
+
+  onNextStep = () => {
+    const { cpf, birthday, name, rg, gender, stateOfBirth, nationality, maritalStatus } = this.state;
+    return this.props.onNextStep({ cpf, birthday, name, rg, gender, stateOfBirth, nationality, maritalStatus });
+  };
 
   render() {
     return (
@@ -117,7 +120,7 @@ class PersonalDataForm extends React.Component {
           </Select>
         </Panel>
         <Panel between="s">
-          <Button fit onClick={() => this.props.onNextStep(this.state)}>
+          <Button fit onClick={this.onNextStep}>
             Próximo passo
           </Button>
           <Button fit ghost onClick={this.onClearButtonClick}>

@@ -7,11 +7,11 @@ const PersonalDataFormModal = ({
   isOpen,
   onClose,
   onNextStep,
-  userProfile,
+  userInfo,
 }) => (
   <Modal onClose={onClose} isOpen={isOpen}>
     <PersonalDataForm
-      userProfile={userProfile}
+      userInfo={userInfo}
       onNextStep={onNextStep}
     />
   </Modal>

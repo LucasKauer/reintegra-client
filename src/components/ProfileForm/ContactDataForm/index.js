@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -18,14 +17,22 @@ class ContactDataForm extends React.Component {
   }
 
   componentWillMount() {
-    this.setState(this.props.userProfile);
+    this.setState(this.props.userInfo);
   }
 
   handleChange = ({ target }) => this.setState({ [target.name]: target.value });
 
   onClearButtonClick = () => this.setState(this.initialState);
 
-  findAll = tagName => ReactDOM.findDOMNode(this).getElementsByTagName(tagName);
+  onPrevStep = () => {
+    const { email, cellPhone } = this.state;
+    return this.props.onPrevStep({ email, cellPhone });
+  };
+
+  onSaveUserInfo = () => {
+    const { email, cellPhone } = this.state;
+    return this.props.onSaveUserInfo({ email, cellPhone });
+  };
 
   render() {
     return (
@@ -52,11 +59,11 @@ class ContactDataForm extends React.Component {
           />
         </Panel>
         <Panel between="s">
-          <Button fit onClick={() => this.props.onSaveProfile(this.state)}>
+          <Button fit onClick={this.onSaveUserInfo}>
             Salvar
           </Button>
           <Panel row between="s">
-            <Button fit ghost onClick={() => this.props.onPrevStep(this.state)}>
+            <Button fit ghost onClick={this.onPrevStep}>
               Voltar
             </Button>
             <Button fit ghost onClick={this.onClearButtonClick}>

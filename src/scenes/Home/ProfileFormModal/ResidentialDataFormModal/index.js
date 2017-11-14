@@ -8,11 +8,11 @@ const ResidentialDataFormModal = ({
   onClose,
   onNextStep,
   onPrevStep,
-  userProfile,
+  userInfo,
 }) => (
   <Modal onClose={onClose} isOpen={isOpen}>
     <ResidentialDataForm
-      userProfile={userProfile}
+      userInfo={userInfo}
       onNextStep={onNextStep}
       onPrevStep={onPrevStep}
     />

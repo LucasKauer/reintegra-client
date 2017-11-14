@@ -3,6 +3,7 @@ import { createAction } from 'redux-actions';
 const setJobsState = createAction('SET_JOBS_STATE');
 const setJobsError = createAction('SET_JOBS_ERROR');
 
+/* TODO: Remover duplicações de código */
 const getJobs = () => (dispatch, _, api) => {
   api.getJobs()
     .then(({ dados }) => dispatch(setJobsState(dados)))

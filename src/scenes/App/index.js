@@ -74,7 +74,7 @@ class App extends React.Component {
     this.props
       .createAccount({ password, nickname })
       .then(this.handleClose);
-  }
+  };
 
   render() {
     return (

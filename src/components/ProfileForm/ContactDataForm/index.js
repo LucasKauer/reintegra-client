@@ -1,6 +1,7 @@
 import React from 'react';
 
 import Button from 'components/Button';
+import File from 'components/File';
 import Input from 'components/Input';
 import Panel from 'components/Panel';
 
@@ -57,6 +58,7 @@ class ContactDataForm extends React.Component {
             onChange={this.handleChange}
             required
           />
+          <File name="resume" />
         </Panel>
         <Panel between="s">
           <Button fit onClick={this.onSaveUserInfo}>

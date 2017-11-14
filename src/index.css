@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat'); 
+@import url('https://fonts.googleapis.com/css?family=Josefin+Slab');
+
 html {
     font-size: 16px;
   }
@@ -5,7 +8,7 @@ html {
   body {
     margin: 0;
     padding: 0;
-    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
     color: #333;
   }
 
@@ -43,16 +46,10 @@ html {
   h4,
   h5,
   h6 {
-    font-family: 'Neuton', serif;
+    font-family: 'Josefin Slab', serif;
   }
 
-  p,
-  span {
-    font-family: 'Neuton', serif;
-  }
-
-
-  a {
+    a {
     text-decoration: none;
     color: #A76622;
     text-decoration-skip: ink;

@@ -1,12 +1,18 @@
 .landing-page-panel {
   position: relative;
   text-align: center;
+  border-width: 1px 0px;
+  border-style: solid;
 }
 
 .landing-page-panel:nth-child(even) {
   background-color: white;
-  border-top: 1px solid #ccc;
-  border-bottom: 1px solid #ccc;
+  border-color: rgba(60, 192, 167, .4);
+}
+
+.landing-page-panel:nth-child(odd) {
+  background-color: #3CC0A7;
+  border-color: rgba(255, 255, 255, .5);
 }
 
 .landing-page-panel__content {

@@ -17,13 +17,13 @@ const Header = ({children}) => (
     )}
     tag="header"
     row
-    x="m"
+    inset="m"
     align="center"
     justify="space-between"
     sizing="border"
     fit
   >
-    <Panel row align="center" between="s" inset="m">
+    <Panel row align="center" between="s">
       <img src={media.greaterThan.phone() ? logo : loguinho} width={media.greaterThan.phone() ? '200' : '65'}alt="logo" />
     </Panel>
     {children}

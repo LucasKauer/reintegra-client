@@ -3,8 +3,10 @@ import { createAction } from 'redux-actions';
 const setUserInfoState = createAction('SET_USER_INFO_STATE');
 const setUserInfoError = createAction('SET_USER_INFO_ERROR');
 
-const getUserInfoByNickname = nickname => (dispatch, _, api) => {
-  api.getUserInfoByNickname(nickname)
+const getUserInfoByNickname = () => (dispatch, _, api) => {
+  api.getUserNickname()
+    .then(({ dados }) => dados.nickname)
+    .then(nickname => api.getUserInfoByNickname(nickname))
     .then(({ dados }) => dispatch(setUserInfoState(dados)))
     .catch(error => dispatch([
       setUserInfoState({}),

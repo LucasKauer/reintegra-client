@@ -39,7 +39,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     this.props.getJobs();
-    this.props.getUserInfoByNickname();
+    this.props.getUserInfo();
   }
 
   componentWillUpdate(prevProps, prevState) {
@@ -54,7 +54,7 @@ class Home extends React.Component {
   handleCloseProfile = () =>
     this.props
       .closeProfileModal()
-      .then(() => this.props.getUserInfoByNickname());
+      .then(() => this.props.getUserInfo());
 
   handleNextStep = userInfo => {
     this.props

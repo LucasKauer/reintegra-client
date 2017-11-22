@@ -3,7 +3,7 @@ import { createAction } from 'redux-actions';
 const setUserInfoState = createAction('SET_USER_INFO_STATE');
 const setUserInfoError = createAction('SET_USER_INFO_ERROR');
 
-const getUserInfoByNickname = () => (dispatch, _, api) => {
+const getUserInfo = () => (dispatch, _, api) => {
   api.getUserNickname()
     .then(({ dados }) => dados.nickname)
     .then(nickname => api.getUserInfoByNickname(nickname))
@@ -30,7 +30,7 @@ const mix = (oldInfo, newInfo) => Object.assign(oldInfo, newInfo);
 export {
   setUserInfoState,
   setUserInfoError,
-  getUserInfoByNickname,
+  getUserInfo,
   updateUserInfo,
   saveUserInfo,
 };
